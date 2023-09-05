@@ -28,5 +28,48 @@
 
         echo '</ul>';
     ?>
+
+<h2>Ejercicio 2</h2>
+    <p>Proporcionar los valores de $a, $b, $c como sigue:</p>
+    <ul>
+        <li>$a = “ManejadorSQL”;</li>
+        <li>$b = 'MySQL’;</li>
+        <li>$c = &$a;</li>
+    </ul>
+    <p>a. Ahora muestra el contenido de cada variable</p>
+    <?php
+        $a = "ManejadorSQL";
+        $b = 'MySql';
+        $c = &$a;
+
+        echo $a;
+        echo '<br>';
+        echo $b;
+        echo '<br>';
+        echo $c;
+    ?>
+    <p>b. Agrega al código actual las siguientes asignaciones:</p>
+    <ul>
+        <li>$a = “PHP server”;</li>
+        <li>$b = &$a;</li>
+    </ul>
+    <?php
+        $a = "PHP server";
+        $b = &$a;
+    ?>
+    <p>c. Vuelve a mostrar el contenido de cada uno</p>
+    <?php
+        echo $a;
+        echo '<br>';
+        echo $b;
+        echo '<br>';
+        echo $c;
+    ?>
+    <p>d. Describe en y muestra en la página obtenida qué ocurrió en el segundo bloque de
+    asignaciones</p>
+    <p>En el punto a, el uso de comillas no es tan importante en este ejemplo,
+        pero el uso & es que apunta a la direccion de memoria de la variable a. 
+        Entonces si se modifica a se modifica por consecuente b.
+    </p>
 </body>
 </html>
