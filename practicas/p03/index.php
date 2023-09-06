@@ -158,5 +158,22 @@
         echo '<br>';
         /*No deberia de cambiar la ejecucion, pues no hay variables que estuvieran en otro ambito*/
     ?>
+
+    <h2> Ejercicio 5 </h2>
+    <p>5. Dar el valor de las variables $a, $b, $c al final del siguiente script: </p>
+
+    <ul>
+        <li>$a = “7 personas”; </li> <!--se le da una cadena a $a-->
+        <li>$b = (integer) $a; </li> <!--en $b se trata de almacenar el valor de la conversion de $a a entero. $b = 7-->
+        <li>$a = “9E3”; </li> <!--cambia el valor de $a a otra cadena 9E3-->
+        <li>$c = (double) $a; </li> <!--en $c se trata de almacenar el valor de la conversion de 9E3 a un float. 9E3 es la notacion
+        cientifica de 9000-->
+    </ul>
+
+    <ul>
+        <li>Para $a, su valor final es 9E3.</li>
+        <li>Para $b, su valor final es 7. Luego de convertir a entero la cadena inicial de $a que es "7 perosnas".</li>
+        <li>Para $c, su valor final es 9000, pues trata de convertir la cadena 9E3(notacion cientifica) a un double.</li>
+    </ul>
 </body>
 </html>
