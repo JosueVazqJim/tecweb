@@ -95,7 +95,7 @@
 
         $z[] = &$a; /*z es una arreglo, en su primer espacio que es 0 almacena la direccion de memoria
         de la variale $a*/
-        echo "\$z[]: $z[0]";
+        echo "\$z[]:"; print_r($z); /*print_r($z); muestra todos los componentes del arreglo*/
         echo '<br>';
 
         $b = "5a version de PHP"; /*solo se le agrega una cadena a $b */
@@ -119,14 +119,44 @@
 
         $z[0] = "MySQL"; /*Se cambia lo que habia en la posicion 0 de $z, tenia la direccion de $a, pero
         tambien $a se modifico*/
-        echo "\$z[]: $z[0]";
+        echo "\$z[]: ";
+        print_r($z);
         echo '<br>';
-        echo $a;
-        echo $b;
     ?>
-    
+
     <h2>Ejercicio 4</h2>
     <p>Lee y muestra los valores de las variables del ejercicio anterior, pero ahora con la ayuda de  la matriz $GLOBALS o del modificador 
     global de PHP.</p>
+    <?php
+        unset($a, $b, $c, $z);
+        $a = "PHP5";
+        echo "\$a: " . $GLOBALS['a']; 
+        echo '<br>';
+
+        $z[] = &$a;
+        echo "\$z[]: " . $GLOBALS['z'][0]; 
+        echo '<br>';
+
+        $b = "5a version de PHP";
+        echo "\$b: " . $GLOBALS['b']; 
+        echo '<br>';
+
+        $c = $b * 10;
+        echo "\$c: " . $GLOBALS['c']; 
+        echo '<br>';
+
+        $a .= $b;
+        echo "\$a: " . $GLOBALS['a']; 
+        echo '<br>';
+
+        $b *= $c;
+        echo "\$b: " . $GLOBALS['b'];
+        echo '<br>';
+
+        $z[0] = "MySQL";
+        echo "\$z[]: " . $GLOBALS['z'][0];
+        echo '<br>';
+        /*No deberia de cambiar la ejecucion, pues no hay variables que estuvieran en otro ambito*/
+    ?>
 </body>
 </html>
