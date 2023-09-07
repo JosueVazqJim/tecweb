@@ -27,6 +27,8 @@
         echo '<li>$_element1 es valida porque inicia con un guion bajo.</li>';
 
         echo '</ul>';
+
+        unset($_myvar, $_7var, $myvar, $var7, $_element1)
     ?>
 
     <h2>Ejercicio 2</h2>
@@ -65,6 +67,7 @@
         echo "\$b: $b";
         echo '<br>';
         echo "\$c: $c";
+        unset($a, $b, $c); /*eliminar de la memoria*/
     ?>
     <p>d. Describe en y muestra en la página obtenida qué ocurrió en el segundo bloque de
     asignaciones</p>
@@ -88,75 +91,111 @@
     </ul>
     <p>Evolucion</p>
     <?php
-        unset($a, $b, $c, $z); /*eliminar de la memoria pq asi se soluciono el problema*/
         $a = "PHP5";
+        echo "Primera asignacion \$a = \"PHP5\"; <br>";
         echo "\$a: $a"; /*solo se le agrega una cadena a $a */
-        echo '<br>';
+        echo '<br><br>';
 
         $z[] = &$a; /*z es una arreglo, en su primer espacio que es 0 almacena la direccion de memoria
         de la variale $a*/
+        echo "Segunda asignacion \$z[] = &\$a; <br>";
         echo "\$z[]:"; print_r($z); /*print_r($z); muestra todos los componentes del arreglo*/
         echo '<br>';
+        echo "\$a: $a";
+        echo '<br><br>';
 
         $b = "5a version de PHP"; /*solo se le agrega una cadena a $b */
+        echo "Tercer asignacion \$b = \"5a version de PHP\"; <br>";
         echo "\$b: $b";
         echo '<br>';
 
         $c = $b*10; /*en $c se le trata de asignar el resultado de la operacion de tratar de convertir 
         lo que tiene $b a numero y multiplicarlo por 10. $b inicia con un 5, entonces ese es el numero que agarra
         y multiplica*/
+        echo "Cuarta asignacion \$c = \$b*10; <br>";
         echo "\$c: $c";
         echo '<br>';
+        echo "\$b: $b";
+        echo '<br><br>';
 
         $a .= $b; /*Concatena lo que hay en $a con $b*/
+        echo "Quinta asignacion \$a .= \$b; <br>";
         echo "\$a: $a";
+        echo '<br>';
+        echo "\$b: $b";
         echo '<br>';
 
         $b *= $c; /*Vuelve a tratar de hacer una conversion pero se toma el 5 de $b y lo multiolica por el 50 de 
         $cS*/
+        echo "Sexta asignacion \$b *= \$c; <br>";
         echo "\$b: $b";
         echo '<br>';
+        echo "\$c: $c";
+        echo '<br><br>';
 
         $z[0] = "MySQL"; /*Se cambia lo que habia en la posicion 0 de $z, tenia la direccion de $a, pero
-        tambien $a se modifico*/
+        tambien $a se modifico por lo mismo*/
+        echo "Septima asignacion \$z[0] = \"MySQL\"; <br>";
         echo "\$z[]: ";
         print_r($z);
         echo '<br>';
+        echo "\$a: $a";
+        echo '<br>s';
+        unset($a, $b, $c, $z);
     ?>
 
     <h2>Ejercicio 4</h2>
     <p>Lee y muestra los valores de las variables del ejercicio anterior, pero ahora con la ayuda de  la matriz $GLOBALS o del modificador 
     global de PHP.</p>
     <?php
-        unset($a, $b, $c, $z);
         $a = "PHP5";
-        echo "\$a: " . $GLOBALS['a']; 
-        echo '<br>';
-
+        echo "Primera asignacion \$a = \"PHP5\"; <br>";
+        echo "\$a: " . $GLOBALS['a'];
+        echo '<br><br>';
+        
         $z[] = &$a;
-        echo "\$z[]: " . $GLOBALS['z'][0]; 
+        echo "Segunda asignacion \$z[] = &\$a; <br>";
+        echo "\$z[]: ";
+        print_r($z);
         echo '<br>';
-
+        echo "\$a: " . $GLOBALS['a'];
+        echo '<br><br>';
+        
         $b = "5a version de PHP";
-        echo "\$b: " . $GLOBALS['b']; 
-        echo '<br>';
-
-        $c = $b * 10;
-        echo "\$c: " . $GLOBALS['c']; 
-        echo '<br>';
-
-        $a .= $b;
-        echo "\$a: " . $GLOBALS['a']; 
-        echo '<br>';
-
-        $b *= $c;
+        echo "Tercer asignacion \$b = \"5a version de PHP\"; <br>";
         echo "\$b: " . $GLOBALS['b'];
         echo '<br>';
-
-        $z[0] = "MySQL";
-        echo "\$z[]: " . $GLOBALS['z'][0];
+        
+        $c = $b * 10;
+        echo "Cuarta asignacion \$c = \$b*10; <br>";
+        echo "\$c: " . $GLOBALS['c'];
         echo '<br>';
-        /*No deberia de cambiar la ejecucion, pues no hay variables que estuvieran en otro ambito*/
+        echo "\$b: " . $GLOBALS['b'];
+        echo '<br><br>';
+        
+        $a .= $b;
+        echo "Quinta asignacion \$a .= \$b; <br>";
+        echo "\$a: " . $GLOBALS['a'];
+        echo '<br>';
+        echo "\$b: " . $GLOBALS['b'];
+        echo '<br>';
+        
+        $b *= $c;
+        echo "Sexta asignacion \$b *= \$c; <br>";
+        echo "\$b: " . $GLOBALS['b'];
+        echo '<br>';
+        echo "\$c: " . $GLOBALS['c'];
+        echo '<br><br>';
+        
+        $z[0] = "MySQL";
+        echo "Septima asignacion \$z[0] = \"MySQL\"; <br>";
+        echo "\$z[]: ";
+        print_r($z);
+        echo '<br>';
+        echo "\$a: " . $GLOBALS['a'];
+        echo '<br>';
+        
+        unset($a, $b, $c, $z);
     ?>
 
     <h2> Ejercicio 5 </h2>
@@ -175,5 +214,95 @@
         <li>Para $b, su valor final es 7. Luego de convertir a entero la cadena inicial de $a que es "7 perosnas".</li>
         <li>Para $c, su valor final es 9000, pues trata de convertir la cadena 9E3(notacion cientifica) a un double.</li>
     </ul>
+
+    <h2>Ejercicio 6</h2>
+    <p>Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas  usando la función var_dump(<datos>). </p>
+    <p>Después investiga una función de PHP que permita transformar el valor booleano de $c y $e  en uno que se pueda mostrar con un echo: </p>
+    <ul>
+        <li>$a = "0";</li> 
+        <li>$b = "TRUE";</li>
+        <li>$c = FALSE;</li>
+        <li>$d = ($a OR $b);</li>
+        <li>$e = ($a AND $c);</li>
+        <li>$f = ($a XOR $b);</li>
+    </ul>
+    <?php
+        $a = "0"; /* */
+        $b = "TRUE";
+        $c = "FALSE";
+        $d = ($a OR $b); /*$a es una cadena no vacia, tampoco $b, pero se supone que php toma a $b como un 
+        booleano true*/
+        $e = ($a AND $c); /*Esto mismo pasa aca, $a tiene algo dentro, es true, pero $c dice explicitamente
+        false, por lo tanto $e es un booleano falso*/
+        $f = ($a XOR $b); 
+
+        echo "\$a = \"0\" es: ";
+        if(is_bool($a)){
+            echo "Booleano \t| ";
+        }
+        else{
+            echo "No Booleano \t| ";
+        }
+        var_dump($a);
+        echo "<br>";
+
+        echo "\$b = \"TRUE\" es: ";
+        if(is_bool($b)){
+            echo "Booleano \t| ";
+        }
+        else{
+            echo "No Booleano \t| ";
+        }
+        var_dump($b);
+        echo "<br>";
+
+        echo "\$c = \"FALSE\" es: ";
+        if(is_bool($c)){
+            echo "Booleano \t| ";
+        }
+        else{
+            echo "No Booleano \t| ";
+        }
+        var_dump($c);
+        echo "<br>";
+
+        echo "\$d = (\$a OR \$b) es: ";
+        if(is_bool($d)){
+            echo "Booleano \t| ";
+        }
+        else{
+            echo "No Booleano \t| ";
+        }
+        var_dump($d);
+        echo "<br>";
+
+        echo "\$e = (\$a AND \$c) es: ";
+        if(is_bool($e)){
+            echo "Booleano \t| ";
+        }
+        else{
+            echo "No Booleano \t| ";
+        }
+        var_dump($e);
+        echo "<br>";
+
+        echo "\$f = (\$a XOR \$b) es: ";
+        if(is_bool($f)){
+            echo "Booleano \t| ";
+        }
+        else{
+            echo "No Booleano \t| ";
+        }
+        var_dump($f);
+        echo "<br><br>";
+
+        echo "Para convertir \$c y a \$e a valores que se puedan mostrar con un echo, se usa la funcion
+        settype, y se les cambia a integer <br>";
+        settype($c, "integer");
+        settype($e, "integer");
+        echo "settype(\$c, \"integer\"): $c <br>";
+        echo "settype(\$e, \"integer\"): $e <br>";
+        echo "Ambos dan 0 pues son FALSE. FALSE corresponde a 0 y TRUE a 1 <br>";
+    ?>
 </body>
 </html>
