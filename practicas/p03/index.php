@@ -109,7 +109,7 @@
         echo "\$b: $b";
         echo '<br>';
 
-        $c = $b*10; /*en $c se le trata de asignar el resultado de la operacion de tratar de convertir 
+        @$c = $b*10; /*en $c se le trata de asignar el resultado de la operacion de tratar de convertir 
         lo que tiene $b a numero y multiplicarlo por 10. $b inicia con un 5, entonces ese es el numero que agarra
         y multiplica*/
         echo "Cuarta asignacion \$c = \$b*10; <br>";
@@ -125,7 +125,7 @@
         echo "\$b: $b";
         echo '<br>';
 
-        $b *= $c; /*Vuelve a tratar de hacer una conversion pero se toma el 5 de $b y lo multiolica por el 50 de 
+        @$b *= $c; /*Vuelve a tratar de hacer una conversion pero se toma el 5 de $b y lo multiolica por el 50 de 
         $cS*/
         echo "Sexta asignacion \$b *= \$c; <br>";
         echo "\$b: $b";
@@ -166,7 +166,7 @@
         echo "\$b: " . $GLOBALS['b'];
         echo '<br>';
         
-        $c = $b * 10;
+        @$c = $b * 10;
         echo "Cuarta asignacion \$c = \$b*10; <br>";
         echo "\$c: " . $GLOBALS['c'];
         echo '<br>';
@@ -180,7 +180,7 @@
         echo "\$b: " . $GLOBALS['b'];
         echo '<br>';
         
-        $b *= $c;
+        @$b *= $c;
         echo "Sexta asignacion \$b *= \$c; <br>";
         echo "\$b: " . $GLOBALS['b'];
         echo '<br>';
@@ -303,6 +303,21 @@
         echo "settype(\$c, \"integer\"): $c <br>";
         echo "settype(\$e, \"integer\"): $e <br>";
         echo "Ambos dan 0 pues son FALSE. FALSE corresponde a 0 y TRUE a 1 <br>";
+
+        unset($a, $b, $c, $d, $e, $f);
+    ?>
+
+    <h2>Ejercicio 7</h2>
+    <p>7. Usando la variable predefinida $_SERVER, determina lo siguiente: </p>
+    <ol type = "a">
+        <li>La versión de Apache y PHP,</li>
+        <li>El nombre del sistema operativo (servidor),</li> 
+        <li>El idioma del navegador (cliente).</li>
+    </ol>
+    <?php
+        echo "a. Version de Apache y PHP: <br> \$_SERVER['SERVER_SIGNATURE']" .$_SERVER['SERVER_SIGNATURE'];
+        echo "b. nombre del sistema operativo (servidor): <br> \$_SERVER['SERVER_NAME'] <br>" .$_SERVER['SERVER_NAME']. "<br>";
+        echo "c. idioma del navegador del cliente: <br> \$_SERVER['HTTP_ACCEPT_LANGUAGE'] <br>" .$_SERVER['HTTP_ACCEPT_LANGUAGE']. "<br>";
     ?>
 </body>
 </html>
