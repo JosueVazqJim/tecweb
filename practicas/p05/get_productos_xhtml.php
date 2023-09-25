@@ -15,8 +15,8 @@
 
     if (!empty($tope))
     {
-        /** SE CREA EL OBJETO DE CONEXION */
-        @$link = new mysqli('localhost', 'root', 'Normita1230', 'marketzone');	
+		/** SE CREA EL OBJETO DE CONEXION RECORDAR CAMBIAR LA CONTRASEÑA*/
+        @$link = new mysqli('localhost', 'root', '1230N0rmita', 'marketzone');	
 
         /** comprobar la conexión */
         if ($link->connect_errno) 

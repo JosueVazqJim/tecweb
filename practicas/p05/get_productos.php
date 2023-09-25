@@ -13,8 +13,8 @@
 
 	if (!empty($tope))
 	{
-		/** SE CREA EL OBJETO DE CONEXION */
-		@$link = new mysqli('localhost', 'root', 'Normita1230', 'marketzone');
+		/** SE CREA EL OBJETO DE CONEXION RECORDAR CAMBIAR LA CONTRASEÑA*/
+		@$link = new mysqli('localhost', 'root', '1230N0rmita', 'marketzone');
         /** NOTA: con @ se suprime el Warning para gestionar el error por medio de código */
 
 		/** comprobar la conexión */
@@ -43,7 +43,7 @@
 
 		$link->close();
 
-        /** Se devuelven los datos en formato JSON */
+        /** Se devuelven los datos en formato JSON. Agarra el $data y lo pasa a formato json */
         echo json_encode($data, JSON_PRETTY_PRINT);
 	}
 	?>
